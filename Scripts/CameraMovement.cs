@@ -14,7 +14,7 @@ public class CameraMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0))
         {
             Cursor.lockState = CursorLockMode.Locked;
-            /*
+
             Change.RotateC.y += Input.GetAxis("Mouse X") * rotationSpeed;
             if (-90 < Change.RotateC.x && Change.RotateC.x < 90)
                 Change.RotateC.x -= Input.GetAxis("Mouse Y") * rotationSpeed;

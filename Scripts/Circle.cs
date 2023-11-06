@@ -1,15 +1,15 @@
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
-public class nAnglePrism : MonoBehaviour
+public class Circle : MonoBehaviour
 {
 
-    public Texture2D cubeTexture;
     public int Qutality = 16;
-    public float Height = 1;
+    public int Circles = 4;
     public float Radius = 1;
-    public float BottomRadius = 1;
     Vector3[] vert;
+
+    public Vector3[] points;
     void OnEnable()
     {
         var mesh = new Mesh
@@ -17,31 +17,35 @@ public class nAnglePrism : MonoBehaviour
             name = "Procedural Mesh2"
         };
 
-        vert = new Vector3[Qutality * 2 + 2];
+        vert = new Vector3[(Circles - 2) * Qutality];
         int[]     tria = new int    [Qutality * 4 * 3];
 
-
-        for (int i = 0; i < Qutality; i++)
+        for (int j = 0; j < Circles-2; j++)
         {
+            for (int i = 0; i < Qutality; i++)
+            {
 
-            vert[i] = new Vector3( 
-                Radius * Mathf.Cos(360f / Qutality * i * Mathf.Deg2Rad),
-                Height/2,
-                Radius * Mathf.Sin(360f / Qutality * i * Mathf.Deg2Rad)
-            );
+                vert[i] = new Vector3(
+                    Radius * Mathf.Cos(360f / Qutality * i * Mathf.Deg2Rad),
+                    Radius * Mathf.Sin(180f / Circles * j * Mathf.Deg2Rad),
+                    Radius * Mathf.Sin(360f / Qutality * i * Mathf.Deg2Rad)
+                );
 
-            vert[i+Qutality] = new Vector3(
-                BottomRadius * Mathf.Cos(360f / Qutality * i * Mathf.Deg2Rad),
-                -Height/2,
-                BottomRadius * Mathf.Sin(360f / Qutality * i * Mathf.Deg2Rad)
-            );
-    
+                vert[i + Qutality] = new Vector3(
+                    Radius * Mathf.Cos(360f / Qutality * i * Mathf.Deg2Rad),
+                   -Radius * Mathf.Sin(180f / Circles * j * Mathf.Deg2Rad),
+                    Radius * Mathf.Sin(360f / Qutality * i * Mathf.Deg2Rad)
+                );
+
+            }
         }
+        
 
-        vert[vert.Length - 2] = new Vector3(0, Height/2, 0);
-        vert[vert.Length - 1] = new Vector3(0, -Height/2, 0);
+        vert[vert.Length - 2] = new Vector3(0, 0, 0);
+        vert[vert.Length - 1] = new Vector3(0, 0, 0);
 
-
+        points = vert;
+        /*
         int count = 0;
         for (int i = 0; i < Qutality; i++)
         {
@@ -67,7 +71,7 @@ public class nAnglePrism : MonoBehaviour
                 tria[count++] = 0;
             }
         }
-
+        
         for (int i = 0; i < Qutality; i++)
         {
             if (i + 1 != Qutality)
@@ -95,7 +99,7 @@ public class nAnglePrism : MonoBehaviour
 
         
 
-
+        
         
         Vector2[] uvs = new Vector2[mesh.vertices.Length];
 
@@ -103,11 +107,14 @@ public class nAnglePrism : MonoBehaviour
         {
             uvs[i] = new Vector2(mesh.vertices[i].x, mesh.vertices[i].z);
         }
-
+        */
         mesh.vertices = vert;
-        mesh.triangles = tria;
-        mesh.uv = uvs;
+
         
+        // mesh.triangles = tria;
+        //mesh.uv = uvs;
+        //mesh.RecalculateNormals();
+        //mesh.RecalculateTangents();
         GetComponent<MeshFilter>().mesh = mesh;
 
     }
@@ -122,4 +129,8 @@ public class nAnglePrism : MonoBehaviour
         return normals;
     }
 
+    public void OnDrawGizmos()
+    { 
+        foreach (Vector3 vec in vert) Gizmos.DrawSphere(vec, 0.05f);
+    }
 }
