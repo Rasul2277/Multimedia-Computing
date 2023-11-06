@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7955883484113741684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7955883484113741687}
+  - component: {fileID: 7955883484113741680}
+  m_Layer: 0
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7955883484113741687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7955883484113741684}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7955883484113741680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7955883484113741684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b45c6baaa346dd41b3e801fbf5fc235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 16
+  height: 16
+  Cube: {fileID: 5854346109633332867, guid: 720fe41467b3b5044b805bb04a91a2a8, type: 3}
+  Offset: {x: 0, y: 0}
+  Scale: 1
+  Colors:
+  - {r: 0.03095406, g: 0.4433962, b: 0.06907899, a: 1}
+  - {r: 0.07045478, g: 0.6415094, b: 0, a: 1}
+  - {r: 0.08049724, g: 0.7830189, b: 0, a: 1}
+  - {r: 0.37430188, g: 0.8584906, b: 0, a: 1}
+  - {r: 0.602775, g: 0.98039216, b: 0, a: 1}
+  - {r: 0.64068675, g: 0.8962264, b: 0, a: 1}
+  - {r: 0.9245283, g: 0.86682135, b: 0.3959772, a: 1}
+  - {r: 0.7396226, g: 1, b: 0.90678245, a: 1}
+  - {r: 0.58786047, g: 0.9245283, b: 0.8901248, a: 1}
+  - {r: 0.3433962, g: 0.77296746, b: 1, a: 1}
+  - {r: 0, g: 0.63443565, b: 1, a: 1}
+  - {r: 0.14391239, g: 0.44302753, b: 0.990566, a: 1}
+  - {r: 0.16575289, g: 0.26503426, b: 0.9056604, a: 1}
+  - {r: 0, g: 0.036949612, b: 0.6509434, a: 1}
+  - {r: 0, g: 0.044275112, b: 0.24528301, a: 1}
+  - {r: 0, g: 0.031296764, b: 0.1792453, a: 1}
+  GlobalVariables: {fileID: 0}
