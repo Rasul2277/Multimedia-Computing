@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class Circle : MonoBehaviour
 {
-
+    
     public int Qutality = 16;
     public int Circles = 4;
     public float Radius = 1;
@@ -127,10 +127,10 @@ public class Circle : MonoBehaviour
             normals[i] = Vector3.up;
         }
         return normals;
-    }
+    }/*
 
     public void OnDrawGizmos()
     { 
         foreach (Vector3 vec in vert) Gizmos.DrawSphere(vec, 0.05f);
-    }
+    }*/
 }

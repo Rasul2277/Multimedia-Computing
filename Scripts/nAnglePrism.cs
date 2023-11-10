@@ -21,8 +21,7 @@ public class nAnglePrism : MonoBehaviour
         int[]     tria = new int    [Qutality * 4 * 3];
 
 
-        for (int i = 0; i < Qutality; i++)
-        {
+        for (int i = 0; i < Qutality; i++){
 
             vert[i] = new Vector3( 
                 Radius * Mathf.Cos(360f / Qutality * i * Mathf.Deg2Rad),

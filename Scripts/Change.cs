@@ -14,7 +14,7 @@ public class Change : MonoBehaviour
     public      Vector3     Rotate      =   Vector3.zero        ; 
     public      Vector3     Scale       =   Vector3.one         ;
 
-    public      static Vector3     RotateC     =   Vector3.zero        ; 
+    public      Vector3     RotateC     =   Vector3.zero ; 
     
 
     public      float       width       =   1                   ;

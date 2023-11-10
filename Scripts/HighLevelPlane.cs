@@ -51,7 +51,7 @@ public class HighLevelPlane : MonoBehaviour
         mesh.triangles = tria;
         Vector2[] uvs = new Vector2[mesh.vertices.Length];
 
-        for (int i = 0; i < uvs.Length; i++)
+        for (int i = 0; i < uvs.Length; i++)  
         {
             uvs[i] = new Vector2(mesh.vertices[i].x, mesh.vertices[i].z ) / 256  ;
         }
