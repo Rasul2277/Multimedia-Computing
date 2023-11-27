@@ -5,19 +5,19 @@ public class nAnglePrism : MonoBehaviour
 {
 
     public Texture2D cubeTexture;
-   
-    
-    
 
 
-    public enum Task {Cone, Cylinder, Cube, Frustrum};
+
+
+
+    public enum Task { Cone, Cylinder, Cube, Frustrum };
     public Task type;
 
     public int points = 16;
 
     public float coneRadius = 1;
     public float coneHeight = 1;
-    
+
 
     public float CylRadius = 1;
     public float CylHeight = 1;
@@ -43,16 +43,11 @@ public class nAnglePrism : MonoBehaviour
         {
             name = "Procedural Mesh2"
         };
-
-        
-        
-
-        
     }
 
     private void Update()
     {
-        
+
 
         if (type == Task.Cone) GenerateCone();
 
@@ -80,6 +75,8 @@ public class nAnglePrism : MonoBehaviour
     {
         vert = new Vector3[points * 2 + 2];
         tria = new int[points * 4 * 3];
+
+
 
         for (int i = 0; i < points; i++)
         {
@@ -128,7 +125,6 @@ public class nAnglePrism : MonoBehaviour
         vert[vert.Length - 1] = new Vector3(0, -CylHeight / 2, 0);
     }
 
-
     void GenerateCube()
     {
         points = 4;
@@ -138,7 +134,7 @@ public class nAnglePrism : MonoBehaviour
         for (int i = 0; i < points; i++)
         {
 
-            
+
             vert[i] = new Vector3(
                 CubeSize * Mathf.Cos((360f / points * i + 45) * Mathf.Deg2Rad) / Mathf.Sqrt(2),
                 CubeSize / 2,
@@ -157,8 +153,6 @@ public class nAnglePrism : MonoBehaviour
         vert[vert.Length - 1] = new Vector3(0, -CubeSize / 2, 0);
     }
 
-
-
     void GenerateFustrum()
     {
         points = 4;
@@ -167,7 +161,7 @@ public class nAnglePrism : MonoBehaviour
 
         for (int i = 0; i < points; i++)
         {
-           
+
             vert[i] = new Vector3(
                 FustrumTopSize * Mathf.Cos((360f / points * i + 45) * Mathf.Deg2Rad),
                 FustrumHeight / 2,
@@ -186,8 +180,6 @@ public class nAnglePrism : MonoBehaviour
         vert[vert.Length - 1] = new Vector3(0, -FustrumHeight / 2, 0);
     }
 
-
-
     void GenerateTriangles()
     {
         int count = 0;
@@ -195,13 +187,13 @@ public class nAnglePrism : MonoBehaviour
         {
             if (i + 1 != points)
             {
-                tria[count++] = i + 1;
-                tria[count++] = i + points;
-                tria[count++] = i;
+                tria[count++] = i % points + 1;
+                tria[count++] = i % points  + points;
+                tria[count++] = i % points;
 
-                tria[count++] = i + 1;
-                tria[count++] = i + points + 1;
-                tria[count++] = i + points;
+                tria[count++] = i % points + 1;
+                tria[count++] = i % points + points + 1;
+                tria[count++] = i % points + points;
 
             }
             else
